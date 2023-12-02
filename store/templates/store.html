@@ -4,7 +4,7 @@
   <div class="row">
     {% for product in products %}
     <div class="col-lg-4">
-        <img class="thumbnail" src="{{product.imageURL}}" />
+        <img class="thumbnail" style="width: 416px; height: 416px; object-fit: contain;" src="{{product.imageURL}}" />
         <div class="box-element product">
             <h6><strong>{{product.name}}</strong></h6>
             <hr />

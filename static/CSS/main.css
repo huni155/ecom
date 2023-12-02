@@ -38,9 +38,10 @@ h6 {
     padding: 10px;
 }
 
-.thumbnail {
-    width: 296px;
-    height: 296px;
+img .thumbnail {
+    object-fit: contain;
+    width: 416px;
+    height: 416px;
     -webkit-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
     -moz-box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
     box-shadow: -1px -3px 5px -2px rgba(214, 214, 214, 1);
