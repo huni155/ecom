@@ -18,61 +18,6 @@ for (var i = 0; i < updateBtns.length; i++) {
     });
 }
 
-// function addCookieItem(productId, productPrice, action, productName, productImg) {
-//     // console.log('not authenticated')
-//     console.log(productPrice);
-//     let isExists = false;
-//     cart.forEach(item => {
-//         if(productId == item.productId) {
-//             isExists = true;
-//         }
-//     });
-//     if (action == 'add') {
-//         if (isExists) {
-//             cart.forEach(item => {
-//                 if(productId == item.productId) {
-//                     item.quantity +=1
-//                 }
-//             });
-//         }
-//         else {
-//             cart.push({ productId: productId, quantity: 1 , price: productPrice, name: productName, imageURL: productImg});
-//         }
-//         const alert = document.querySelector('.alert');
-//         alert.innerHTML = "successfully to add new item";
-//         alert.style.display = "block!important"
-//     }
-
-//     if (action == 'remove') {
-//         if (isExists) {
-//             cart.forEach(item => {
-//                 if(productId == item.productId) {
-//                     delete item
-//                     console.log(cart)
-//                 }
-//             });
-//         }
-//         cart[productId][quantity] -= 1
-
-//         if (cart[productId][quantity] <= 0) {
-//             console.log('remove item')
-//             delete cart[productId]
-//         }
-//     }
-
-//     var totalCartItems = 0
-
-//     cart.forEach(item => {
-//         totalCartItems += item.quantity
-//     });
-
-//     console.log('cart:', cart)
-//     console.log('total:', totalCartItems)
-
-//     document.cookie = 'cart=' + JSON.stringify(cart) + ';domain=;path=/'
-
-// }
-
 function addCookieItem(productId, action) {
     console.log("product id: ", productId);
     console.log("not logged in");
