@@ -3,10 +3,7 @@ var updateBtns = document.getElementsByClassName("update-cart");
 for (var i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener("click", function () {
         var productId = this.dataset.product;
-        var productPrice = this.dataset.price;
         var action = this.dataset.action;
-        var productName = this.dataset.name;
-        var productImg = this.dataset.img;
         // console.log('productId:', productId, 'Action:', action)
 
         // console.log('USER:', user)
