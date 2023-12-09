@@ -18,6 +18,8 @@ for (var i = 0; i < updateBtns.length; i++) {
     });
 }
 
+
+
 function addCookieItem(productId, action) {
     console.log("product id: ", productId);
     console.log("not logged in");
