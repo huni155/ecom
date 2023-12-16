@@ -1,0 +1,35 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+<style>
+    .box-element {
+        padding: 45px;
+        margin-top: 10vh;
+    }
+    #messages {
+        color: greenyellow;
+    }
+</style>
+<form method="post" action="">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12"></div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <div class="box-element product">
+                    <h1 style="margin-bottom: 30px;"><strong>Login</strong></h1>
+                    {% csrf_token %}
+                    <p>Username: </p>
+                    <input type="text" name="username">
+                    <p>Password: </p>
+                    <input type="text" name="password">
+                    <input type="submit" name="Create User" class="btn btn-outline-success" style="margin-left: 3vw;"/>
+                    {% for message in messages %}
+                        <p id="messages">{{message}}</p>
+                    {% endfor %}
+                    <p>Don't have an account? <a href="{% url 'register' %}">create one</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock content %}

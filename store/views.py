@@ -1,9 +1,55 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.http import JsonResponse
 import json
-
+from django.contrib.auth.forms import UserCreationForm
 from .utils import *
+from .form import *
+from django.contrib import messages
+from django.contrib.auth import login, authenticate, logout
+
+def loginPage(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+    
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('store')
+    
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'cartItems' : cartItems}
+    return render(request, 'accounts/login.html', context)
+
+def registerPage(request):
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        
+        if form.is_valid():
+            user = form.save()
+            messages.success(request, 'Account created')
+            Customer.objects.create(
+                user=user,
+                name=form.cleaned_data.get('username'),
+                email=form.cleaned_data.get('email')
+            )
+            return redirect('login')
+    
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'form' : form, 'cartItems' : cartItems}
+    return render(request, 'accounts/register.html', context)
 
 def store(request):
     data = cartData(request)
