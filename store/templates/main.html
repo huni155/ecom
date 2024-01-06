@@ -12,6 +12,21 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
             crossorigin="anonymous"
         />
+        <style>
+            /* Media query for mobile viewport */
+            @media screen and (max-width: 400px) {
+                #paypal-button-container {
+                    width: 100%;
+                }
+            }
+            
+            /* Media query for desktop viewport */
+            @media screen and (min-width: 400px) {
+                #paypal-button-container {
+                    width: 250px;
+                }
+            }
+        </style>
         <title>E-commerce</title>
         <script>
             var user = "{{request.user}}";
